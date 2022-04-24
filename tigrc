@@ -1,0 +1,14 @@
+# Push the current branch to origin
+bind status P !git push origin
+
+# Push the highlighted ref to origin
+bind refs P !git push origin
+
+# Create a new branch
+bind refs n !@git branch "%(prompt Enter branch name: )"
+
+# Amend previous commit
+bind generic + !git commit --amend
+
+# Rebase the highlighted ref on top of prompted branch name
+bind refs B !git rebase -i %(branch)
